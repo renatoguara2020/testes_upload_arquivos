@@ -20,7 +20,10 @@ try {
   // echo a message to say the UPDATE succeeded
   echo $stmt->rowCount() . " records UPDATED successfully";
 } catch(PDOException $e) {
-  echo $sql . "<br>" . $e->getMessage();
+  echo  "<br>" . $e->getMessage() ." ". $e->getTraceAsString();
+}
+  while($row = $stmt->fetchAll()) {
+    echo "<tr><td>".$row["id"]."</td><td>".$row["firstname"]." ".$row["lastname"]."</td></tr>";
 }
 
 $conn = null;
